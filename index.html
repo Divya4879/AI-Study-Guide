@@ -96,7 +96,6 @@
         let currentExplanation = '';
         let currentQuiz = '';
 
-        mermaid.initialize({ startOnLoad: true });
 
         async function generateExplanation() {
             const topic = document.getElementById('topic').value;
@@ -131,7 +130,7 @@
                 const data = await response.json();
                 let text = data.candidates[0].content.parts[0].text;
                 text = text.replace(/##(.*?)##/g, '<h1>$1</h1>').replace(/\*\*(.*?)\*\*/g, '<h2>$1</h2>');
-                text = text.replace(/##/g, '').replace(/\*\*/g, ''); // Remove the symbols
+                text = text.replace(/##/g, '').replace(/\*\*/g, ''); 
 
                 currentExplanation = text;
                 resultContainer.innerHTML = `
@@ -239,7 +238,7 @@ ${knowledge}`
 
                 if (!response.ok) {
                     const errorData = await response.json();
-                    throw new Error(`Failed to analyze knowledge with status: ${response.status}, ${response.statusText}, ${JSON.stringify(errorData)}`);
+                    throw new Error(`Failed to analyze your knowledge with status: ${response.status}, ${response.statusText}, ${JSON.stringify(errorData)}`);
                 }
 
                 const data = await response.json();
@@ -322,9 +321,8 @@ ${knowledge}`
 
                 roadmapResultContainer.innerHTML = `
                     <div class="result">
-                        <h2>${topic.toUpperCase()} Roadmap:</h2>
+                        <h2>${topic.toUpperCase()} Learning Plan:</h2>
                         ${formattedRoadmap}
-                        
                     </div>
                 `;
 
