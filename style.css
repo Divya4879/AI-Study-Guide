@@ -4,6 +4,7 @@ body {
     color: #333;
     margin: 0 auto;
     background-color: #f0e6ff;
+    font-weight: bold;
 }
 main {
     max-width: 800px;
@@ -14,47 +15,59 @@ main {
     color: #4b0082;
     text-align: center;
 }
+h1{
+    font-size: 48px;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    text-shadow: 2px 2px 2px rgb(214, 173, 230);
+}
 form, .result {
     background-color: #d8c3ff;
     padding: 20px;
-    border-radius: 8px;
+    border-radius: 12px;
     margin-bottom: 20px;
-     display: flex;
+    display: flex;
     flex-direction: column;
     align-items: center;
+    box-shadow: 4px 4px 4px rgb(155, 75, 230);
+    
 }
 form button {
     margin-right: 5px;
     margin-left: 5px;
+    width:200px;
+    height:50px;
+    color:rgb(231, 223, 240)
 }
 label {
     display: block;
     margin-bottom: 5px;
     color: #4b0082;
+    font-size: 18px;
+    text-shadow: 1px 1px 1px rgb(148, 75, 173);
 }
 input, select, textarea {
     width: 100%;
     padding: 8px;
     margin-bottom: 15px;
-    border: 1px solid #9370db;
-    border-radius: 4px;
+    border: 2px solid #7f4fde;
+    border-radius: 8px;
     box-sizing: border-box;
 }
+
 button {
     background-color: #4b0082;
     color: white;
     padding: 10px 15px;
     border: none;
-    border-radius: 4px;
+    border-radius: 8px;
     cursor: pointer;
     font-size: 16px;
-   display: inline-block;
+    display: inline-block;
+    margin:10px
 }
-
  form#generatorForm button, form#topicAnalysisForm button, form#roadmapForm button{
     display: inline-block;
 }
-
 button:hover {
     background-color: #6a0dad;
 }
@@ -121,8 +134,6 @@ button:hover {
 }
 .result li {
     margin-bottom: 8px;
-     font-size: 14px;
-     font-weight: 500;
 }
 header img{
     width: 100vw;
