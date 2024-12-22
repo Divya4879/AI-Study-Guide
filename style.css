@@ -18,7 +18,7 @@ main {
 h1{
     font-size: 48px;
     font-family:Georgia, 'Times New Roman', Times, serif;
-    text-shadow: 2px 2px 2px rgb(214, 173, 230);
+    text-shadow: 3px 2px 2px rgb(195, 120, 224);
 }
 form, .result {
     background-color: #d8c3ff;
