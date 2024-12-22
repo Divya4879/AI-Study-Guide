@@ -1,6 +1,6 @@
-# Gemini AI Learning Assistant
+# Gemini AI Based Study Helper
 
-This project is a web-based learning assistant that leverages the Gemini AI API to provide educational tools and resources. It includes features for generating explanations, quizzes, analyzing knowledge, and creating flowcharts.
+This project is a AI-based learning assistant that leverages the Gemini AI API to provide educational tools and resources. It includes features for generating explanations, quizzes, analyzing knowledge, and creating study plans.
 
 ## Features
 
@@ -9,23 +9,18 @@ This project is a web-based learning assistant that leverages the Gemini AI API 
 *   **Quiz Generator:**
     *   Creates a quiz on a selected topic with a specified number of questions and sample answers.
 *   **Topic Analysis:**
-    *   Analyzes user-provided knowledge on a topic, providing feedback on strengths, weaknesses, and points to remember.
-*   **Flowchart Generator:**
-    *   Generates flowcharts based on a given topic using Mermaid syntax.
-*   **Study Plan Generator:**
-    *   Creates study plans of 20, 30, 50, or 100 days based on user-selected topics or covering HTML, CSS and Javascript.
-    *   Includes all the topics from MDN Docs, Modernjavascript.info and js.challenger websites
-    *  Includes links to resources from all of the 3 websites above.
+    *   Analyzes user-provided knowledge on a topic, providing feedback on strengths, weaknesses, and points to consider.
+*   **Learning Plan Generator:**
+    *   Generates learning plans based on a given topic based on the user's proficiency in it.
 *   **PDF Download:**
-    *   Allows users to download explanations, quizzes, analysis, or flowcharts as PDF files.
+    *   Allows users to download explanations, quizzes or feedback/analysis as PDF files.
 
 ## Technologies Used
 
 *   **HTML:** For structuring the web page.
-*   **CSS:** For styling the web page with a dark green theme.
+*   **CSS:** For styling the web page with a purple theme.
 *   **JavaScript:** For the core logic, API calls, and dynamic content updates.
 *   **Gemini AI API:** For generating explanations, quizzes, and performing topic analysis.
-*   **Mermaid.js:** For rendering flowcharts.
 *   **jsPDF:** For generating PDF documents.
 
 ## Setup
@@ -53,13 +48,11 @@ This project is a web-based learning assistant that leverages the Gemini AI API 
 3.  **Topic Analysis:**
     *   Enter the topic, context, and your knowledge in the "Topic Analysis" form.
     *   Click "Analyze Knowledge." The feedback will be provided in the "Knowledge Analysis" section.
-4.  **Flowchart Generator:**
-    *   Enter a topic in the "Flowchart Generator" form.
-    *   Click "Generate Flowchart." The flowchart will be displayed below.
- 5.  **Study Plan Generator:**
-    * Select the duration and click "Generate Study Plan"
-    * The study plan will be generated below
-
+4.  **Learning Plan Generator:**
+    *   Enter a topic in the "Learning Plan Generator" form.
+    *   Choose your proficiency level- Newbie/Beginner/Advanced/Master?Expert/Scientist.
+    *   Click "Generate Learning Plan." The learning plan will be displayed below.
+ 
 ## PDF Downloads
 
 *  All the above sections can be downloaded as PDF using the "Download as PDF" button that appears with the output
@@ -67,12 +60,12 @@ This project is a web-based learning assistant that leverages the Gemini AI API 
 ## Error Handling
 
 *   The application includes basic error handling, and will display errors to the user. If there is an error with the Gemini API, it will also provide the status code and any status text that is returned.
-*   If the mermaid rendering fails for a diagram, there will be an error message.
 *   For PDF generation, if there is no content, an alert will be displayed.
 
 ## Project Structure
 
-*   `index.html`: The single HTML file that contains all the project's HTML structure, CSS styling, and JavaScript code.
+*   `index.html`: The HTML file that contains all the project's HTML structure and JavaScript code.
+*   `style.css`: This file contains all the CSS styling for this project.
 
 ## Important Notes
 
