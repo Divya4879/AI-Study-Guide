@@ -3,181 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gemini AI Learning Assistant</title>
+    <title>Gemini AI Based Study Helper</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.6.1/mermaid.min.js"></script>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            margin: 0 auto;
-            background-color: #f0e6ff;
-        }
-        main {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-         h1, h2 {
-            color: #4b0082;
-            text-align: center;
-        }
-        form, .result {
-            background-color: #d8c3ff;
-            padding: 20px;
-            border-radius: 8px;
-            margin-bottom: 20px;
-             display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        form button {
-            margin-right: 5px;
-            margin-left: 5px;
-        }
-        label {
-            display: block;
-            margin-bottom: 5px;
-            color: #4b0082;
-        }
-        input, select, textarea {
-            width: 100%;
-            padding: 8px;
-            margin-bottom: 15px;
-            border: 1px solid #9370db;
-            border-radius: 4px;
-            box-sizing: border-box;
-        }
-        button {
-            background-color: #4b0082;
-            color: white;
-            padding: 10px 15px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 16px;
-            display: inline-block;
-        }
-         form#generatorForm button, form#topicAnalysisForm button, form#roadmapForm button{
-            display: inline-block;
-        }
-        button:hover {
-            background-color: #6a0dad;
-        }
-        #error {
-            color: red;
-            margin-top: 10px;
-        }
-        .loading {
-            text-align: center;
-            color: #4b0082;
-        }
-        .quiz-question {
-            margin-bottom: 15px;
-        }
-        .sample-answer {
-            margin-top: 10px;
-            font-style: italic;
-            color: #4b0082;
-        }
-        #roadmapResult {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 20px;
-        }
-        .result p {
-            white-space: pre-line;
-        }
-        .result {
-            background-color: #d5c4f6;
-        }
-        .result ul {
-            margin-left: 20px;
-            margin-bottom: 15px;
-            padding-left: 20px;
-        }
-        .result h3 {
-            margin-bottom: 10px;
-            color: #4b0082;
-            font-size: 1.3em;
-            font-weight: bold;
-            text-decoration: underline;
-        }
-        .result section {
-            margin-bottom: 20px;
-            border-bottom: 1px solid #9370db;
-            padding-bottom: 10px;
-        }
-        .result h2 {
-            color: #4b0082;
-            margin-top: 20px;
-            margin-bottom: 10px;
-        }
-        .result h3 {
-            color: #6a0dad;
-            margin-top: 15px;
-            margin-bottom: 8px;
-        }
-        .result p {
-            margin-bottom: 10px;
-        }
-        .result ul, .result ol {
-            margin-bottom: 15px;
-        }
-        .result li {
-            margin-bottom: 8px;
-        }
-        header img{
-            width: 100vw;
-            height: 40vh;
-            position: fixed;
-            top: 0;
-            left: 0;
-            margin: 0;
-            padding: 0;
-            object-fit: cover;
-            z-index: -1;
-        }
-        h1{
-            position:relative;
-            padding-top:40vh;
-        }
-    </style>
+    <link href="style.css" rel="stylesheet">
 </head>
 <body>
     <header>
         <img src="/images/header.png" alt="header">
     </header>
       <main>
-      <h1>Gemini AI Learning Assistant</h1>
+      <h1>Gemini AI Based Study Helper</h1>
        <form id="generatorForm">
-        <label for="topic">Topic:</label>
-        <input type="text" id="topic" required>
+        <label for="topic" >Topic:</label>
+        <input type="text" id="topic" placeholder="What do you want to learn or test yourself about?" required>
 
         <label for="educationLevel">Education Level:</label>
         <select id="educationLevel" required>
-            <option value="elementary">Elementary</option>
+            <option value="elementary">Elementary School</option>
             <option value="middle">Middle School</option>
             <option value="high">High School</option>
             <option value="college">College</option>
             <option value="graduate">Graduate</option>
+            <option value="doctorate">Doctorate</option>
+            <option value="diploma">Diploma</option>
         </select>
 
-        <label for="wordCount">Word Count for Explanation:</label>
-        <input type="number" id="wordCount" min="50" max="500" value="200" required>
+        <label for="wordCount">Word Count:</label>
+        <input type="number" id="wordCount" min="50" max="500" value="200" placeholder="Word count for the explanation" required>
 
-        <label for="quizQuestions">Number of Quiz Questions:</label>
+        <label for="quizQuestions">Number of Questions in Quiz:</label>
         <select id="quizQuestions" required>
-            <option value="5">5</option>
             <option value="10">10</option>
-            <option value="15">15</option>
             <option value="20">20</option>
+            <option value="30">30</option>
+            <option value="40">40</option>
         </select>
 
          <div style="text-align: center;">
-           <button type="button" onclick="generateExplanation()">Generate Explanation</button>
+           <button type="button" onclick="generateExplanation()">Explain it</button>
            <button type="button" onclick="generateQuiz()">Generate Quiz</button>
         </div>
     </form>
@@ -187,10 +51,10 @@
     <form id="topicAnalysisForm">
         <h2>Topic Analysis</h2>
         <label for="analysisTopic">Topic:</label>
-        <input type="text" id="analysisTopic" required>
+        <input type="text" id="analysisTopic" placeholder="Which topic do you want to be assessed on?" required>
 
-        <label for="analysisContext">Context (e.g., preparing for exams, doing research):</label>
-        <input type="text" id="analysisContext" required>
+        <label for="analysisContext">Context:</label>
+        <input type="text" id="analysisContext" placeholder="Preparing for exams, Doing research, Just exploring" required>
 
         <label for="topicKnowledge">Write everything you know about this topic:</label>
         <textarea id="topicKnowledge" rows="10" required></textarea>
@@ -201,21 +65,25 @@
     </form>
 
     <div id="analysisResultContainer"></div>
+    
 
     <form id="roadmapForm">
-        <h2>Learning Roadmap</h2>
+        <h2>Learning Plan</h2>
         <label for="roadmapTopic">Topic:</label>
-        <input type="text" id="roadmapTopic" required>
+        <input type="text" id="roadmapTopic" required placeholder="Which topic do you want a plan of?">
 
         <label for="proficiencyLevel">Proficiency Level:</label>
         <select id="proficiencyLevel" required>
             <option value="beginner">Beginner</option>
             <option value="intermediate">Intermediate</option>
             <option value="advanced">Advanced</option>
+            <option value="master">Master</option>
+            <option value="expert">Expert</option>
+            <option value="scientist">Scientist</option>
         </select>
 
         <div style="text-align: center;">
-             <button type="button" onclick="generateRoadmap()">Generate Roadmap</button>
+             <button type="button" onclick="generateRoadmap()">Generate Learning Plan</button>
         </div>
     </form>
 
@@ -253,7 +121,7 @@ const API_KEY = "AIzaSyCAMKmbieLWaJhhY3k4tZ4rIw6r03RPV7A";
                     body: JSON.stringify({
                         contents: [{
                             parts: [{
-                                text: `Explain the topic "${topic}" at a ${educationLevel} education level in approximately ${wordCount} words.`
+                                text: `Explain the topic "${topic}" at a ${educationLevel} education level in approximately ${wordCount} words.Remember that you\'re an internationally recognized educator and have helped guide thousands of students and even educators.`,
                             }]
                         }]
                     })
@@ -272,8 +140,8 @@ const API_KEY = "AIzaSyCAMKmbieLWaJhhY3k4tZ4rIw6r03RPV7A";
                 currentExplanation = text;
                 resultContainer.innerHTML = `
                     <div class="result">
-                        <h2>Explanation:</h2>
-                         <p>${currentExplanation}</p>
+                        <h2>${topic.toUpperCase()} Explanation:</h2>
+                         <p style="font-weight:bold">${currentExplanation}</p>
                         <button onclick="downloadPDF('explanation')">Download Explanation as PDF</button>
                     </div>
                 `;
@@ -303,7 +171,7 @@ const API_KEY = "AIzaSyCAMKmbieLWaJhhY3k4tZ4rIw6r03RPV7A";
                     body: JSON.stringify({
                         contents: [{
                             parts: [{
-                                text: `Generate a quiz with ${quizQuestions} questions about "${topic}" at a ${educationLevel} education level. For each question, provide a sample answer. Format the response as a numbered list with questions followed by sample answers. Use proper line spacing between questions and answers for better readability.`
+                                text: `Generate a quiz with ${quizQuestions} questions about "${topic}" at a ${educationLevel} education level. For each question, provide a sample answer. Format the response as a numbered list with questions followed by sample answers. Use proper line spacing between questions and answers for better readability.Also, remember that you've been an internationally renowned educator and a professor for decades, and have helped more than lakhs of students.`
                             }]
                         }]
                     })
@@ -316,13 +184,13 @@ const API_KEY = "AIzaSyCAMKmbieLWaJhhY3k4tZ4rIw6r03RPV7A";
 
                  const data = await response.json();
                 let text = data.candidates[0].content.parts[0].text;
-                 text = text.replace(/##(.*?)##/g, '<h1>$1</h1>').replace(/\*\*(.*?)\*\*/g, '<h2>$1</h2>');
+                 text = text.replace(/##(.*?)##/g, '<h4>$1</h4>').replace(/\*\*(.*?)\*\*/g, '<h4>$1</h4>');
                   text = text.replace(/##/g, '').replace(/\*\*/g, '');
 
                  currentQuiz = text;
                 resultContainer.innerHTML = `
                     <div class="result">
-                        <h2>Quiz:</h2>
+                        <h2>${topic.toUpperCase()} Quiz:</h2>
                         <div style="white-space: pre-wrap;">${currentQuiz}</div>
                         <button onclick="downloadPDF('quiz')">Download Quiz as PDF</button>
                     </div>
@@ -353,7 +221,7 @@ const API_KEY = "AIzaSyCAMKmbieLWaJhhY3k4tZ4rIw6r03RPV7A";
                     body: JSON.stringify({
                         contents: [{
                             parts: [{
-                                text: `Analyze the following knowledge about the topic "${topic}" in the context of "${context}". Provide feedback in the following structure:
+                                text: `Remember that you've been an internationally recognized best educator for more than 3 decades, and that you've helped more than lakhs of students, and even educators. Analyze the following knowledge about the topic "${topic}" in the context of "${context}". Provide feedback in the following structure:
 
 Strengths:
 • [List at least 3 strengths, each starting with a bullet point]
@@ -387,7 +255,7 @@ ${knowledge}`
 
                 analysisResultContainer.innerHTML = `
                     <div class="result">
-                        <h2>Knowledge Analysis:</h2>
+                        <h2>Your knowledge Analysis on ${topic.toUpperCase()}:</h2>
                         ${formattedAnalysis}
                         <button onclick="downloadPDF('analysis')">Download Analysis as PDF</button>
                     </div>
@@ -423,7 +291,7 @@ ${knowledge}`
             const roadmapResultContainer = document.getElementById('roadmapResultContainer');
             const errorDiv = document.getElementById('error');
 
-            roadmapResultContainer.innerHTML = '<div class="result"><p class="loading">Generating learning roadmap...</p></div>';
+            roadmapResultContainer.innerHTML = '<div class="result"><p class="loading">Generating learning plan...</p></div>';
             errorDiv.textContent = '';
 
             try {
@@ -435,7 +303,7 @@ ${knowledge}`
                     body: JSON.stringify({
                         contents: [{
                             parts: [{
-                                text: `Create a detailed and structured learning plan for the topic "${topic}" at a "${proficiencyLevel}" proficiency level. Organize the plan into main sections with ##Section Title## format. Use **Subsection Title** for subsections. Provide specific to-do items and resources (such as documentation links, course links, relevant YouTube video links, and blog links) under each section. Ensure proper formatting and hierarchy. Each point should be on a new line. Format the links in markdown as follows: *** <a href="link of resource">Topic name</a>`
+                                text: `Remember that you've been a globally renowned educator for more than 3 decades, and have helped lakhs of students, educators & many institutions. Create a detailed and structured learning plan for the topic "${topic}" at a "${proficiencyLevel}" proficiency level. Organize the plan into main sections with ##Section Title## format. Use **Subsection Title** for subsections. Provide specific to-do items and resources (such as documentation links, course links, relevant YouTube video links, and blog links) under each section. Ensure proper formatting and hierarchy. Each point should be on a new line. Format the links in markdown as follows: *** <a href="link of resource">Topic name</a>`
                             }]
                         }]
                     })
@@ -443,7 +311,7 @@ ${knowledge}`
 
                 if (!response.ok) {
                     const errorData = await response.json();
-                    throw new Error(`Failed to generate roadmap with status: ${response.status}, ${response.statusText}, ${JSON.stringify(errorData)}`);
+                    throw new Error(`Failed to generate learning plan with status: ${response.status}, ${response.statusText}, ${JSON.stringify(errorData)}`);
                 }
 
                 const data = await response.json();
@@ -451,22 +319,22 @@ ${knowledge}`
                     throw new Error('Unexpected API response structure');
                 }
                  let roadmap = data.candidates[0].content.parts[0].text;
-                 roadmap = roadmap.replace(/##(.*?)##/g, '<h1>$1</h1>').replace(/\*\*(.*?)\*\*/g, '<h2>$1</h2>');
-                  roadmap = roadmap.replace(/##/g, '').replace(/\*\*/g, '');
+                 roadmap = roadmap.replace(/##(.*?)##/g, '<h2>$1</h2>').replace(/\*\*(.*?)\*\*/g, '<h4>$1</h4>');
+                 roadmap = roadmap.replace(/##/g, '').replace(/\*\*/g, '').replace("#",'').replace("*",'');
 
                 const formattedRoadmap = formatRoadmap(roadmap);
 
                 roadmapResultContainer.innerHTML = `
                     <div class="result">
-                        <h2>Learning Roadmap:</h2>
+                        <h2>${topic.toUpperCase()} Roadmap:</h2>
                         ${formattedRoadmap}
-                        <button onclick="downloadPDF('roadmap')">Download Roadmap as PDF</button>
+                        
                     </div>
                 `;
 
             } catch (error) {
                 console.error('Error:', error);
-                errorDiv.textContent = 'An error occurred while generating the learning roadmap. Please try again.';
+                errorDiv.textContent = 'An error occurred while generating the learning plan. Please try again.';
                 roadmapResultContainer.innerHTML = '';
             }
         }
