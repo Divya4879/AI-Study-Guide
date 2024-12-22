@@ -15,9 +15,8 @@
       <main>
       <h1>Gemini AI Based Study Helper</h1>
        <form id="generatorForm">
-        <label for="topic" >Topic:</label>
+        <label for="topic">Topic:</label>
         <input type="text" id="topic" placeholder="What do you want to learn or test yourself about?" required>
-
         <label for="educationLevel">Education Level:</label>
         <select id="educationLevel" required>
             <option value="elementary">Elementary School</option>
@@ -30,8 +29,7 @@
         </select>
 
         <label for="wordCount">Word Count:</label>
-        <input type="number" id="wordCount" min="50" max="500" value="200" placeholder="Word count for the explanation" required>
-
+        <input type="number" id="wordCount" min="50" max="500" value="100" placeholder="Word count for the explanation" required>
         <label for="quizQuestions">Number of Questions in Quiz:</label>
         <select id="quizQuestions" required>
             <option value="10">10</option>
@@ -57,7 +55,7 @@
         <input type="text" id="analysisContext" placeholder="Preparing for exams, Doing research, Just exploring" required>
 
         <label for="topicKnowledge">Write everything you know about this topic:</label>
-        <textarea id="topicKnowledge" rows="10" required></textarea>
+        <textarea id="topicKnowledge" rows="15" required></textarea>
 
         <div style="text-align: center;">
           <button type="button" onclick="analyzeKnowledge()">Analyze Knowledge</button>
@@ -70,7 +68,7 @@
     <form id="roadmapForm">
         <h2>Learning Plan</h2>
         <label for="roadmapTopic">Topic:</label>
-        <input type="text" id="roadmapTopic" required placeholder="Which topic do you want a plan of?">
+        <input type="text" id="roadmapTopic" required placeholder="Which topic do you want a study plan of?">
 
         <label for="proficiencyLevel">Proficiency Level:</label>
         <select id="proficiencyLevel" required>
@@ -93,9 +91,7 @@
     </main>
     <script>
         
-const API_KEY = "AIzaSyCAMKmbieLWaJhhY3k4tZ4rIw6r03RPV7A";
-
-        
+        const API_KEY = "AIzaSyCAMKmbieLWaJhhY3k4tZ4rIw6r03RPV7A";
         const API_URL = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent';
         let currentExplanation = '';
         let currentQuiz = '';
