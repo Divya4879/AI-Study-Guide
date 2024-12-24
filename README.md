@@ -2,6 +2,12 @@
 
 This project is a AI-based learning assistant that leverages the Gemini AI API to provide educational tools and resources. It includes features for generating explanations, quizzes, analyzing knowledge, and creating study plans.
 
+## Live Link
+My site is live at:- https://divya4879.github.io/AI-Study-Guide
+
+## A little preview of my site
+![screencapture-divya4879-github-io-AI-Study-Guide-2024-12-24-20_50_11](https://github.com/user-attachments/assets/17fda2d6-6788-4055-832a-d09500ad87aa)
+
 ## Features
 
 *   **Explanation Generator:**
